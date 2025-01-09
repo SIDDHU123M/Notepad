@@ -1,0 +1,30 @@
+{
+  "name": "AI Chatbot Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python", // Python extension for better coding experience
+    "ms-vscode.vscode-typescript-next", // Optional, depending on your stack
+    "ms-azuretools.vscode-docker"
+  ],
+  "forwardPorts": [5000], // Expose Flask app
+  "postCreateCommand": "pip install -r requirements.txt", // Install dependencies
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python3"
+      }
+    }
+  },
+  "hostRequirements": {
+    "storage": "64GB",
+    "memory": "16GB",
+    "cpus": 4
+  },
+  "remoteUser": "vscode"
+}
